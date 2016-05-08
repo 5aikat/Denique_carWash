@@ -7,8 +7,10 @@
  */
 require "config.php";
 $cleanerID = $_POST['cleanerID'];
+$start = $_POST['start'];
+$end = $_POST['end'];
 
-$query = "SELECT * FROM `booking` WHERE `CleanerID`= '$cleanerID'";
+$query = "SELECT * FROM `booking` WHERE `CleanerID`= '$cleanerID' AND `Day` between '$start' and '$end'";
 $result = $conn->query($query);
 $numberOfRows = mysqli_num_rows($result);
 echo "Total Number of Bookings for the Cleaner for the given period is :".$numberOfRows;

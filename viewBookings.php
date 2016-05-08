@@ -44,32 +44,37 @@
 
     <!-- Header
     ============================================= -->
-    <header id="header" class="full-header">
+     <header id="header" class="transparent-header page-section dark no-sticky" >
 
-        <div id="header-wrap">
+			<div id="header-wrap">
 
-            <div class="container clearfix">
+				<div class="container clearfix">
 
-                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-                <!-- Logo
-                ============================================= -->
-                <div id="logo">
-                    <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Denique Logo"></a>
-                    <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="DeniqueLogo"></a>
-                </div><!-- #logo end -->
+					<!-- Logo
+					============================================= -->
+					<div id="logo">
+						<a href="index.html" class="standard-logo" data-dark-logo="pics/logo001.png"><img src="pics/logo001.png" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="pics/logo001.png"><img src="pics/logo001.png" alt="Canvas Logo"></a>
+					</div><!-- #logo end -->
 
-                <!-- Primary Navigation
-                ============================================= -->
-                <nav id="primary-menu">
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu">
 
-                </nav><!-- #primary-menu end -->
+						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
+							<li><a href="home.html" data-href="#wrapper"><div style="color:black">Let's, Go Home.</div></a></li>
+							 
+						</ul>
 
-            </div>
+					</nav><!-- #primary-menu end -->
 
-        </div>
+				</div>
 
-    </header><!-- #header end -->
+			</div>
+
+		</header><!-- #header end -->
 
     <!-- Page Title
     ============================================= -->
@@ -90,13 +95,14 @@
             ============================================= -->
     <section id="content">
 
-        <div class="content-wrap">
+        <div class="content-wrap   nopadding nomargin noborder " style="background-image: url('pics/bg1.jpg'); background-size: cover; background-position: top center;">
+
 
             <div class="container clearfix">
 
                 <!-- Postcontent
                 ============================================= -->
-                <div class="postcontent nobottommargin">
+                <div class=" nobottommargin">
 
                     <h3>VIEW BOOKINGS</h3>
 
@@ -128,7 +134,7 @@
                             <input type="text" id="Sdate" name="Sdate" value="" class="sm-form-control required" onchange="fetch_date(this.value);" />
 
                         </div>
-                        <div class="col_one_third">
+                        <div class="col_one_third col_last">
 
                             <label for="template-contactform-name">Search By Phone<small>*</small></label>
                             <select type="text" id="phone" name="phone" value="" class="sm-form-control required" onchange="fetch_phone(this.value);" >
@@ -161,7 +167,7 @@
                             </select>
                         </div>
 
-                        <div class="col_one_third">
+                        <div class="col_one_third ">
 
                             <label for="template-contactform-name">Search by Cleaner<small>*</small></label>
                             <select class="sm-form-control" name="cleanerID" id="cleanerID" onchange="fetch_clean(this.value);">
@@ -305,8 +311,8 @@
 
 
                         </script>
-                        <div class="clear"></div>
-                        <div class="col_one_third">
+                       
+                        <div class="col_one_third col_last bottommargin">
 
                             <label for="template-contactform-name">Select Apartment<small>*</small></label>
                             <select class="sm-form-control" name="ApartmentName" id="ApartmentName" onchange="fetch_apt(this.value);">
@@ -328,17 +334,19 @@
 
 
                         </div>
-                        <div class="col_one_third">
-                            <button class="button button-3d nomargin" type="submit" id="submitCD" name="submitCD" value="submit">CLEANER and DATE</button>
+						
+						<div class="line"></div>
+                        <div class="col_one_fourth">
+                            <button class="button button-border button-rounded nomargin " type="submit" id="submitCD" name="submitCD" value="submit">CLEANER and DATE</button>
                         </div>
-                        <div class="col_one_third">
-                            <button class="button button-3d nomargin" type="submit" id="submitAD" name="submitAD" value="submit">APARTMENT and DATE</button>
+                        <div class="col_one_fourth">
+                            <button class="button button-border button-rounded nomargin " type="submit" id="submitAD" name="submitAD" value="submit">APARTMENT and DATE</button>
                         </div>
-                        <div class="col_one_third">
-                            <button class="button button-3d nomargin" type="submit" id="submitADS" name="submitADS" value="submit">APARTMENT DATE SERVICE</button>
+                        <div class="col_one_fourth">
+                            <button class="button button-border button-rounded nomargin " type="submit" id="submitADS" name="submitADS" value="submit">APARTMENT DATE SERVICE</button>
                         </div>
-                        <div class="col_one_third">
-                            <button class="button button-3d nomargin" type="submit" id="submitPS" name="submitPS" value="submit">PHONE AND SERVICE</button>
+                        <div class="col_one_fourth col_last bottommargin">
+                            <button class="button button-border button-rounded nomargin " type="submit" id="submitPS" name="submitPS" value="submit">PHONE AND SERVICE</button>
                         </div>
                         <script>
                             $(document).ready(function(){
@@ -447,7 +455,7 @@
 
 
                         </script>
-
+<div class="line"></div>
                         <div class="col_full">
                            <div class="accordion accordion-bg clearfix">
                                 <label for="template-contactform-name">Booking Details<small>*</small></label>

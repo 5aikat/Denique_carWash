@@ -2,34 +2,36 @@
 <html dir="ltr" lang="en-US">
 <head>
 
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="Sands Zenith" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
 
-    <!-- Stylesheets
-    ============================================= -->
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<!-- Stylesheets
+	============================================= -->
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="stylesheet" href="css/dark.css" type="text/css" />
-    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-    <link rel="stylesheet" href="css/animate.css" type="text/css" />
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
-
-    <link rel="stylesheet" href="css/responsive.css" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <!--[if lt IE 9]>
-    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-    <![endif]-->
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+	<link rel="stylesheet" href="css/jquery.timepicker.css" type="text/css" />
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
 
     <!-- External JavaScripts
     ============================================= -->
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/jquery.timepicker.js"></script>
+
 
     <!-- Document Title
     ============================================= -->
-	<title>Apartment Details</title>
+    <title>Denique | Auto Care</title>
 
 </head>
 
@@ -66,29 +68,36 @@ foreach($conn->query($apartmentQuery) as $apartment)
 
         <!-- Header
         ============================================= -->
-       <header id="header" class="full-header no-sticky" >
- 
+      <header id="header" class="transparent-header page-section dark" data-sticky-class="not-dark" data-sticky-offset="full" data-sticky-offset-negative="100">
+
 			<div id="header-wrap">
 
 				<div class="container clearfix">
 
-				 
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
 					<!-- Logo
 					============================================= -->
-					<!--<div id="logo" class="leftmargin">
-						<a href="index.html" class="standard-logo" data-dark-logo="pics/logo.jpg"><img src="pics/logo.jpg" alt=" Logo"></a>
-						<a href="index.html" class="retina-logo" data-dark-logo="pics/logo.jpg"><img src="pics/logo.jpg" alt="Logo"></a>
-					
+					<div id="logo">
+						<a href="index.html" class="standard-logo" data-dark-logo="pics/logo001.png"><img src="pics/logo001.png" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="pics/logo001.png"><img src="pics/logo001.png" alt="Canvas Logo"></a>
 					</div><!-- #logo end -->
 
 					<!-- Primary Navigation
 					============================================= -->
-					 
+					<nav id="primary-menu">
+
+						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
+							<li><a href="home.html" data-href="#wrapper"><div style="color:black">Let's, Go Home.</div></a></li>
+							 
+						</ul>
+
+					</nav><!-- #primary-menu end -->
+
 				</div>
 
 			</div>
- 
+
 		</header><!-- #header end -->
 	 
 		 <!-- Page Title
@@ -99,17 +108,24 @@ foreach($conn->query($apartmentQuery) as $apartment)
         ============================================= -->
         
 		
-		
-		<div class="container topmargin-lg">
+		<section id="slider" class="slider-parallax full-screen ">
 
-		<h4 class="left">Name of the Apartment :  <span> <?php echo $apartmentName; ?> </span></h4>
-		
-		<div class="line topmargin-lg bottommargin-lg"></div> 
-		
-			<div class="table-responsive">
+			<div class="slider-parallax-inner">
+
+				<div class="full-screen section nopadding nomargin noborder ohidden" style="background-image: url('pics/4.jpg'); background-size: cover; background-position: top center;">
+
+					<div class="row nomargin" style="position: relative; z-index: 2;">
+						<div class="col-sm-offset-6 col-sm-5 full-screen">
+							<div class="vertical-middle col-padding">
+								<div class="heading-block nobottomborder bottommargin-sm">
+									<b class="left" style="font-weight:bold; color:black" >Name of the Apartment :  <span> <?php echo $apartmentName; ?> </span></b>
+									 
+								</div>
+										 
+										 <div class="table-responsive">
 							<table class="table table-bordered table-striped">
 							  <colgroup>
-								<col class="col-xs-2">
+								<col class="col-xs-4">
 								<col class="col-xs-8">
 							  </colgroup>
 							   
@@ -134,7 +150,7 @@ foreach($conn->query($apartmentQuery) as $apartment)
 								</tr>
 								<tr>
 								  <td>
-									Name of the Block  
+									Type  
 								  </td>
 								  <td> <?php echo $block; ?></td>
 								</tr>
@@ -144,8 +160,8 @@ foreach($conn->query($apartmentQuery) as $apartment)
 						  </div>
 						  
 						  
-						  <div class="col_one_third">
-                                <label for="template-contactform-service">Cleaner  </label>
+						   <div class="col_full">
+                                <label for="template-contactform-service">List of cleaners  </label>
                                 <select name="position" id="position"  tabindex="9" class="sm-form-control required">
 									<?php
 									$getCleaner = "SELECT * FROM `cleanerapartment` WHERE `ApartmentID`='$apartmentID' AND `isActive`=true" ;
@@ -160,100 +176,13 @@ foreach($conn->query($apartmentQuery) as $apartment)
                                 </select>
                             </div>
 							
-							<div class="col_one_third">
-								<label for="template-contactform-service">Service status of the Apartment :  </label> <span> <?php echo $aStatus; ?> </span>
+							<div class="col_full center">
+								<label for="template-contactform-service">Service status of the Apartment :  </label> <span style="color:brown; font-weight:bold"> <?php echo $aStatus; ?> </span>
 						    </div>
-							
-							<div class="col_one_third col_last">
-						    </div>
-
-
-			<!--		<div class="clear"></div>
-							<h4 class="left">Parking Details</h4>
-							
-							
-							
-								<div class="table-responsive bottommargin">
-
-						<table class="table cart">
-							<thead>
-								<tr>
-									 
-									 
-									<th class="cart-product-price left ">Parking Name</th>
-									<th class="cart-product-quantity left ">Address</th>
-									<th class="cart-product-subtotal left ">Notes</th>
-								</tr>
-							</thead>
-							<tbody id="parkingD">
-
-									 <?php
-									// $getParking = "SELECT * FROM `parking` WHERE `ApartmentID`='$apartmentID'";
-									// foreach($conn->query($getParking) as $parking)
-									// {
-									//	 $parkingID = $parking['ParkingID'];
-									//	 $parkingName = $parking['ParkingName'];
-									//	 $parkingAddress = $parking['ParkingAddress'];
-									//	 $parkingNotes = $parking['Notes'];
-
-
-									 ?>
-
-									 <tr class="cart_item center">
-
-									<td class="cart-product-name">
-										<?php// echo $parkingName; ?>
-									</td>
-
-									<td class="cart-product-name">
-										<?php //echo $parkingAddress; ?>
-									</td>
-
-									<td class="cart-product-name">
-										<?php // echo $parkingNotes; ?>
-									</td>
-									 </tr>
-
-									 <?php //} ?>
-
-								 
-								 
-							 
-											
-									 
-							</tbody>
-
-						</table>
-						
-						</div>
-					<h4>Add New Parking Below :</h4>
-						<div class="col_one_third topmargin-sm">
-                                <label for="template-contactform-name">Parking Name <small>*</small></label>
-							<input type="hidden" value=" <?php // echo $apartmentID; ?>" id="apartmentID" name="apartmentID" />
-                                <input type="text" id="pName" name="pName" value="" class="sm-form-control required" />
-                            </div>
-
-                            <div class="col_one_third topmargin-sm ">
-                                <label for="template-contactform-name">Address <small>*</small></label>
-                                <input type="text" id="pAddress" name="pAddress" value="" class="sm-form-control required" />
-                            </div>
-
-                        
-
-                            <div class="col_one_third col_last topmargin-sm">
-                                <label for="template-contactform-email">Notes <small>*</small></label>
-                                <input type="text" id="pNotes" name="pNotes" value="" class="sm-form-control required" />
-                            </div> -->
-							
-     <div class="clear"></div>
-	 
-	 <div class="center">
-	 <button id="addParking"  name="addParking" class="button button-3d nomargin">Add New Parking</button>
-	 
-	 </div>
-					
-					 <div class="line topmargin-lg bottommargin-lg"></div>
-			<div class="center bottommargin-lg">
+						  
+						  
+						  
+						  <div class="center bottommargin-sm">
 
 			<?php
 			if($aStatus == "ACTIVE")
@@ -261,7 +190,7 @@ foreach($conn->query($apartmentQuery) as $apartment)
 			?>
 		
 
-	 <a href="deleteApartment.php?id='<?php echo $apartmentID; ?>'" id="apartmentID" name="apartmentID" class="button button-3d nomargin" style="background-color:brown">Delete Apartment</a>
+	 <a href="deleteApartment.php?id='<?php echo $apartmentID; ?>'" id="apartmentID" name="apartmentID" class="button button-border button-rounded nomargin" style="">Delete Apartment</a>
 	 
 
 			<?php
@@ -272,11 +201,106 @@ foreach($conn->query($apartmentQuery) as $apartment)
 	?>
 
 
-				<a href="activateApartment.php?id='<?php echo $apartmentID; ?>'" id="apartmentID" name="apartmentID" class="button button-3d nomargin" style="background-color:brown">Activate Apartment</a>
+				<a href="activateApartment.php?id='<?php echo $apartmentID; ?>'" id="apartmentID" name="apartmentID" class="button button-border button-rounded nomargin" style="">Activate Apartment</a>
 
 <?php } ?>
 
 		</div>
+						  
+						  
+						  
+						  
+					<script>
+			$(document).ready(function(){
+				$("#deleteApartment").click(function(){
+
+					var apartmentID = $("#apartmentID").val();
+					console.log(apartmentID);
+					var dataString ='apartmentID='+ apartmentID ;
+					$.ajax({
+						type: "POST",
+						url: "deleteApartment.php",
+						data: dataString,
+						cache: false,
+						success: function (response) {
+							document.getElementById("parkingD").innerHTML = response;
+							console.log("Success");
+							console.log(response);
+						}
+					});
+
+					return false;
+				});
+			});
+
+
+		</script>
+			  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+						  
+										 
+										 
+										 
+										 
+										 
+										 
+										 
+										 
+								<div class="center">		 
+						 
+								<a href="viewBookings.php" class=" notopmargin bottommargin-sm center"><b style="color:black">* Hello Admin, want to go to "View Bookings" ?</b></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					 
+
+				</div>
+
+			</div>
+
+		</section><!-- #slider end -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!--Actual Content-->
+		 
 	<!--	<script>
 			$(document).ready(function(){
 				$("#addParking").click(function(){
@@ -305,31 +329,7 @@ foreach($conn->query($apartmentQuery) as $apartment)
 
 
 		</script> -->
-		<script>
-			$(document).ready(function(){
-				$("#deleteApartment").click(function(){
-
-					var apartmentID = $("#apartmentID").val();
-					console.log(apartmentID);
-					var dataString ='apartmentID='+ apartmentID ;
-					$.ajax({
-						type: "POST",
-						url: "deleteApartment.php",
-						data: dataString,
-						cache: false,
-						success: function (response) {
-							document.getElementById("parkingD").innerHTML = response;
-							console.log("Success");
-							console.log(response);
-						}
-					});
-
-					return false;
-				});
-			});
-
-
-		</script>
+	 
 		
 		
 		
@@ -341,45 +341,19 @@ foreach($conn->query($apartmentQuery) as $apartment)
 		
 		
       
-	   <!-- Footer
-        ============================================= -->
-<footer id="footer" class="dark" style="background-color:#1F3C61">
+	  <footer id="footer" class="dark">
 
-            
+    </footer><!-- #footer end -->
 
-            <!-- Copyrights
-            ============================================= -->
-            <div id="copyrights">
+</div><!-- #wrapper end -->
 
-                <div class="container clearfix">
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up"></div>
 
-                    <div class="col_half" style="color:white">
-                        Copyrights &copy; 2016 All Rights Reserved by Denique<br>
-                        <div class="copyright-links">Designed & Developed By : <a href="http://www.sandszenith.com" style="color:#fff"> Sands Zenith</a></div>
-                    </div>
-
-                    <div class="col_half col_last tright">
-                   
-
-                        <div class="clear" ></div>
-
-					</div>
-
-                </div>
-
-            </div><!-- #copyrights end -->
-
-        </footer><!-- #footer end -->
-
-  <!-- #wrapper end -->
-
-    <!-- Go To Top
-    ============================================= -->
-    <div id="gotoTop" class="icon-angle-up"></div>
-
-    <!-- Footer Scripts
-    ============================================= -->
-    <script type="text/javascript" src="js/functions.js"></script>
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="js/functions.js"></script>
 
 </body>
 </html>

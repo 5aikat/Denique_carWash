@@ -44,32 +44,37 @@
 
     <!-- Header
     ============================================= -->
-    <header id="header" class="full-header">
+    <header id="header" class="transparent-header page-section dark" data-sticky-class="not-dark" data-sticky-offset="full" data-sticky-offset-negative="100">
 
-        <div id="header-wrap">
+			<div id="header-wrap">
 
-            <div class="container clearfix">
+				<div class="container clearfix">
 
-                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-                <!-- Logo
-                ============================================= -->
-                <div id="logo">
-                    <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Denique Logo"></a>
-                    <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="DeniqueLogo"></a>
-                </div><!-- #logo end -->
+					<!-- Logo
+					============================================= -->
+					<div id="logo">
+						<a href="index.html" class="standard-logo" data-dark-logo="pics/logo001.png"><img src="pics/logo001.png" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="pics/logo001.png"><img src="pics/logo001.png" alt="Canvas Logo"></a>
+					</div><!-- #logo end -->
 
-                <!-- Primary Navigation
-                ============================================= -->
-                <nav id="primary-menu">
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu">
 
-                </nav><!-- #primary-menu end -->
+						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
+							<li><a href="home.html" data-href="#wrapper"><div style="color:black">Let's, Go Home.</div></a></li>
+							 
+						</ul>
 
-            </div>
+					</nav><!-- #primary-menu end -->
 
-        </div>
+				</div>
 
-    </header><!-- #header end -->
+			</div>
+
+		</header><!-- #header end -->
 
     <!-- Page Title
     ============================================= -->
@@ -87,24 +92,25 @@
 **/
 ?>
 
-    <section id="content">
 
-        <div class="content-wrap">
+<section id="slider" class="slider-parallax full-screen ">
 
-            <div class="container clearfix">
+			<div class="slider-parallax-inner">
 
-                <!-- Postcontent
-                ============================================= -->
-                <div class="postcontent nobottommargin">
+				<div class="full-screen section nopadding nomargin noborder ohidden" style="background-image: url('pics/4.jpg'); background-size: cover; background-position: top center;">
 
-                    <h3>SMS</h3>
+					<div class="row nomargin" style="position: relative; z-index: 2;">
+						<div class="col-sm-offset-6 col-sm-5 full-screen">
+							<div class="vertical-middle col-padding">
+								 <div class="postcontent nobottommargin">
 
+                    
                     <div id="contact-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
 
                     <form class="nobottommargin" id="template-contactform" name="template-contactform" action="SMS.php" method="post">
 
                         <div class="form-process"></div>
-                        <h2>Customer SMS</h2>
+                        <p style="color:brown; font-weight:bold">Send SMS to Customer  ( Interior Washing )</p>
                         <div class="col_one_third col_last">
                             <label for="template-contactform-name">Select Date  <small>*</small></label><br/>
                          <input type="text" id="Sdate" name="Sdate" value="" class="sm-form-control required" onchange="fetch_date(this.value);" />
@@ -145,11 +151,11 @@
 
                     </script>
                         <div class="clear"></div>
-                        <div class="col_one_third col_last">
-                            <p>*PLEASE MAKE SURE YOU HAVE CANCELLED THE BOOKING FROM "VIEW BOOKING" PAGE TO PREVENT SENDIING AN SMS</p>
+                        <div class="col_half">
+                            <p>*Please make sure you have CANCELLED the booking from "VIEW BOOKING" page to prevent sending an SMS</p>
                             </div>
                         <div class="col_full">
-                            <button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
+                            <button class="button button-border button-rounded nomargin " type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
                         </div>
                     </form>
 
@@ -173,30 +179,166 @@
                     </script>
 
                 </div><!-- .postcontent end -->
+							</div>
+						</div>
+					</div>
 
-                <!-- Sidebar
-                ============================================= -->
-            </div>
+					 
 
-        </div>
+				</div>
 
-    </section><!-- #content end -->
+			</div>
+
+		</section><!-- #slider end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
     <!-- Footer
 		============================================= -->
-    <footer id="footer" class="dark">
+    	<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark">
 
-    </footer><!-- #footer end -->
+</footer><!-- #footer end -->
 
-</div><!-- #wrapper end -->
+	</div><!-- #wrapper end -->
 
-<!-- Go To Top
-============================================= -->
-<div id="gotoTop" class="icon-angle-up"></div>
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
 
-<!-- Footer Scripts
-============================================= -->
-<script type="text/javascript" src="js/functions.js"></script>
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="js/functions.js"></script>
 
 </body>
 </html>

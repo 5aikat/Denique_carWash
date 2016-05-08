@@ -44,32 +44,38 @@
 
     <!-- Header
     ============================================= -->
-    <header id="header" class="full-header">
+    <header id="header" class="transparent-header page-section dark" data-sticky-class="not-dark" data-sticky-offset="full" data-sticky-offset-negative="100">
 
-        <div id="header-wrap">
+			<div id="header-wrap">
 
-            <div class="container clearfix">
+				<div class="container clearfix">
 
-                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-                <!-- Logo
-                ============================================= -->
-                <div id="logo">
-                    <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Denique Logo"></a>
-                    <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="DeniqueLogo"></a>
-                </div><!-- #logo end -->
+					<!-- Logo
+					============================================= -->
+					<div id="logo">
+						<a href="index.html" class="standard-logo" data-dark-logo="pics/logo001.png"><img src="pics/logo001.png" alt="Canvas Logo"></a>
+						<a href="index.html" class="retina-logo" data-dark-logo="pics/logo001.png"><img src="pics/logo001.png" alt="Canvas Logo"></a>
+					</div><!-- #logo end -->
 
-                <!-- Primary Navigation
-                ============================================= -->
-                <nav id="primary-menu">
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu">
 
-                </nav><!-- #primary-menu end -->
+						<ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
+							<li><a href="home.html" data-href="#wrapper"><div style="color:black">Let's, Go Home.</div></a></li>
+							 
+						</ul>
 
-            </div>
+					</nav><!-- #primary-menu end -->
 
-        </div>
+				</div>
 
-    </header><!-- #header end -->
+			</div>
+
+		</header><!-- #header end -->
+
 
     <!-- Page Title
     ============================================= -->

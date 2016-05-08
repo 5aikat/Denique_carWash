@@ -20,6 +20,11 @@ $cleanerID = $_POST['CleanerName'];
 $interiorWashDate = $_POST['interiorWashDate'];
 $parking = $_POST['parking'];
 
+
+$flatNo =$_POST['flatNo'];
+$interiorCost = $_POST['interiorCost'];
+$exteriorCost = $_POST['exteriorCost'];
+
 $dob = $_POST['dob'];
 $doa = $_POST['anniversary'];
 
@@ -41,8 +46,8 @@ foreach($conn->query($getCleanerQuery) as $cleaner)
 $datediff = floor($datediff/(60*60*24));
 //add User
 
-$addUserQuery = "INSERT INTO `user`(`UserName`, `emailID`,`DOB`,`DOA`, `userPhone`, `CarMake`, `CarModel`, `RegistrationNo`, `CarType`, `CarColor`, `ReadyByTime`, `LastFourDigit`, `ServiceType`, `ApartmentID`, `CleanerID`, `StartDate`, `EndDate`,`Parking`)
-                VALUES ('$userName','$email','$dob','$doa','$phone','$carMake','$carModel','$registrationNo','$cartype','$carcolor','$readyBy','$lastFour','$serviceType','$apartmentID','$cleanerID','$startDate','$endDate','$parking')";
+$addUserQuery = "INSERT INTO `user`(`UserName`, `emailID`,`DOB`,`DOA`, `userPhone`, `CarMake`, `CarModel`, `RegistrationNo`, `CarType`, `CarColor`, `ReadyByTime`, `LastFourDigit`, `ServiceType`, `ApartmentID`, `CleanerID`, `StartDate`, `EndDate`,`flatNo`, `interiorCost`, `exteriorCost`,`Parking`)
+                VALUES ('$userName','$email','$dob','$doa','$phone','$carMake','$carModel','$registrationNo','$cartype','$carcolor','$readyBy','$lastFour','$serviceType','$apartmentID','$cleanerID','$startDate','$endDate','$flatNo','$interiorCost','$exteriorCost','$parking')";
 
 
 
@@ -77,8 +82,11 @@ if($conn->query($addUserQuery) === TRUE)
             $eventMetaID = mysqli_insert_id($conn);
             for ($i = 1; $i <= $numberOfBookings; $i++) {
                 //add Bookings
-                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`, `userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
-                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Daily - Exterior','$startDate','$readyBy','$apartmentID','$phone','$carMake','$carModel','$carcolor','$parking','$registrationNo')";
+				$sd = strtotime($startDate);
+				$month=date("F",$sd);
+				$year=date("Y",$sd);
+                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`,`Month`,`Year`, `userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
+                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Daily - Exterior','$startDate','$readyBy','$apartmentID','$month','$year','$phone','$carMake','$carModel','$carcolor','$parking','$registrationNo')";
                 if ($conn->query($addBooking) === TRUE)
                 {
                     echo "Exterior Wash Booking Scheduled!";
@@ -89,14 +97,17 @@ if($conn->query($addUserQuery) === TRUE)
             }
         }
         $insertEventMetaIn = "INSERT INTO `eventmeta`(`EventID`, `StartDate`,`Time`, `TotalDuration`)
-                                            VALUES ('4','$interiorWashDate','$readyBy','$numberOfBookings')";
+                                            VALUES ('4','$interiorWashDate','$readyBy','$numberOfBookings/7')";
         if($conn->query($insertEventMetaIn) === TRUE)
         {
             $eventMetaID = mysqli_insert_id($conn);
             for ($i = 1; $i <= floor($numberOfBookings/7); $i++) {
                 //add Bookings
-                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`, `userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
-                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Daily - Interior','$interiorWashDate','$readyBy','$apartmentID','$phone','$carMake','$carModel','$carcolor','$parking', '$registrationNo')";
+				$sd = strtotime($interiorWashDate);
+				$month=date("F",$sd);
+				$year=date("Y",$sd);
+                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`,`Month`,`Year`, `userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
+                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Daily - Interior','$interiorWashDate','$readyBy','$apartmentID','$month','$year','$phone','$carMake','$carModel','$carcolor','$parking', '$registrationNo')";
                 if ($conn->query($addBooking) === TRUE)
                 {
                     echo "Interior Wash Booking Scheduled!";
@@ -119,8 +130,11 @@ if($conn->query($addUserQuery) === TRUE)
             $eventMetaID = mysqli_insert_id($conn);
             for ($i = 1; $i <= floor($numberOfBookings/2); $i++) {
                 //add Bookings
-                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`,`userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
-                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Alternate - Exterior','$startDate','$readyBy','$apartmentID','$phone','$carMake','$carModel','$carcolor','$parking', '$registrationNo')";
+				$sd = strtotime($startDate);
+				$month=date("F",$sd);
+				$year=date("Y",$sd);
+                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`,`Month`,`Year`,`userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
+                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Alternate - Exterior','$startDate','$readyBy','$apartmentID','$month','$year','$phone','$carMake','$carModel','$carcolor','$parking', '$registrationNo')";
                 if ($conn->query($addBooking) === TRUE)
                 {
                     echo "Exterior Wash Booking Scheduled!";
@@ -131,14 +145,17 @@ if($conn->query($addUserQuery) === TRUE)
             }
         }
         $insertEventMetaIn = "INSERT INTO `eventmeta`(`EventID`, `StartDate`,`Time`, `TotalDuration`)
-                                            VALUES ('5','$interiorWashDate','$readyBy','$numberOfBookings')";
+                                            VALUES ('5','$interiorWashDate','$readyBy','$numberOfBookings/14')";
         if($conn->query($insertEventMetaIn) === TRUE)
         {
             $eventMetaID = mysqli_insert_id($conn);
             for ($i = 1; $i <= floor($numberOfBookings/14); $i++) {
                 //add Bookings
-                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`, `userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
-                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Alternate - Interior','$interiorWashDate','$readyBy','$apartmentID','$phone','$carMake','$carModel','$carcolor','$parking', '$registrationNo')";
+				$sd = strtotime($interiorWashDate);
+				$month=date("F",$sd);
+				$year=date("Y",$sd);
+                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`,`Month`,`Year`, `userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
+                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Alternate - Interior','$interiorWashDate','$readyBy','$apartmentID','$month','$year','$phone','$carMake','$carModel','$carcolor','$parking', '$registrationNo')";
                 if ($conn->query($addBooking) === TRUE)
                 {
                     echo "Interior Wash Booking Scheduled!";
@@ -161,8 +178,11 @@ if($conn->query($addUserQuery) === TRUE)
             $eventMetaID = mysqli_insert_id($conn);
             for ($i = 1; $i <= floor($numberOfBookings/7); $i++) {
                 //add Bookings
-                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`,`userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
-                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Weekly - Exterior','$startDate','$readyBy','$apartmentID','$phone','$carMake','$carModel','$carcolor','$parking', '$registrationNo')";
+				$sd = strtotime($startDate);
+				$month=date("F",$sd);
+				$year=date("Y",$sd);
+                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`,`Month`,`Year`,`userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
+                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Weekly - Exterior','$startDate','$readyBy','$apartmentID','$month','$year','$phone','$carMake','$carModel','$carcolor','$parking', '$registrationNo')";
                 if ($conn->query($addBooking) === TRUE)
                 {
                     echo "Exterior Wash Booking Scheduled!";
@@ -173,14 +193,17 @@ if($conn->query($addUserQuery) === TRUE)
             }
         }
         $insertEventMetaIn = "INSERT INTO `eventmeta`(`EventID`, `StartDate`,`Time`, `TotalDuration`)
-                                            VALUES ('6','$interiorWashDate','$readyBy','$numberOfBookings')";
+                                            VALUES ('6','$interiorWashDate','$readyBy','$numberOfBookings/28')";
         if($conn->query($insertEventMetaIn) === TRUE)
         {
             $eventMetaID = mysqli_insert_id($conn);
             for ($i = 1; $i <= floor($numberOfBookings/28); $i++) {
                 //add Bookings
-                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`,`userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
-                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Weekly - Interior','$interiorWashDate','$readyBy','$apartmentID','$phone','$carMake','$carModel','$carcolor','$parking', '$registrationNo')";
+				$sd = strtotime($interiorWashDate);
+				$month=date("F",$sd);
+				$year=date("Y",$sd);
+                $addBooking = "INSERT INTO `booking`(`EventMetaID`, `UserID`, `CleanerID`, `UserName`, `CleanerName`,`cleanerPhone`, `ServiceType`, `Day`, `Time`,`ApartmentID`,`Month`,`Year`,`userPhone`, `carMake`, `carModel`,`carColor`,`Parking`, `registrationNo`)
+                                        VALUES ('$eventMetaID','$userID','$cleanerID','$userName','$cleanerName','$cleanerPhone','Weekly - Interior','$interiorWashDate','$readyBy','$apartmentID','$month','$year','$phone','$carMake','$carModel','$carcolor','$parking', '$registrationNo')";
                 if ($conn->query($addBooking) === TRUE)
                 {
                     echo "Interior Wash Booking Scheduled!";
